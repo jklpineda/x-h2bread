@@ -11,28 +11,21 @@ import { ToastContainer } from "react-toastify";
 export default function RootLayout({ children }) {
   const path = usePathname();
   useEffect(() => {
-    const handleScroll = () => {
+    window.addEventListener("scroll", function () {
       const header = document.getElementById("header-sticky");
-      if (header) {
-        if (window.scrollY > 250) {
-          header.classList.add("sticky");
-        } else {
-          header.classList.remove("sticky");
-        }
+      if (window.scrollY > 250) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
       }
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    });
 
     if (typeof window !== "undefined") {
+      // Import the script only on the client side
       import("bootstrap/dist/js/bootstrap.esm").then(() => {
-        // Bootstrap JS loaded
+        // Module is imported, you can access any exported functionality if
       });
     }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   useEffect(() => {
