@@ -1,0 +1,25 @@
+:root {
+    --body: #fff;
+    --black: #000;
+    --white: #fff;
+    --theme: #004B76;    /* Color azul oscuro corporativo */
+    --theme2: #00B5E2;   /* Color azul claro corporativo */
+    --header: #004B76;   /* Usando el azul oscuro para el header */
+    --text: #666666;     /* Manteniendo el color de texto para legibilidad */
+    --border: #D4DCED;   /* Manteniendo el color del borde */
+    --border-2: #8BC34A; /* Verde corporativo para acentos */
+    --bg: #FFFFFF;       /* Fondo blanco para mejor contraste */
+    --box-shadow: 0px 1px 14px 0px rgba(0, 75, 118, 0.13); /* Sombra basada en el azul corporativo */
+}
+
+// Theme Color - Default Colors
+$black: var(--black);
+$white: var(--white);
+$theme-color: var(--theme);
+$theme-color-2: var(--theme2);
+$text-color: var(--text);
+$header-color: var(--header);
+$border-color: var(--border);
+$border-color-2: var(--border-2);
+$bg-color: var(--bg);
+$shadow: var(--box-shadow);
