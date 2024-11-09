@@ -1,5 +1,6 @@
-module.exports = {
-  reactStrictMode: true,
-  basePath: '/x-h2bread',
-  assetPrefix: '/x-h2bread/',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
 };
+
+export default nextConfig;
