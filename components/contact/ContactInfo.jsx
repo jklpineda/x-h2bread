@@ -1,18 +1,31 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+
 export default function ContactInfo() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section className="contact-info-section fix section-padding">
       <div className="container">
         <div className="section-title text-center">
           <h6 className="wow fadeInUp">
             <i className="fa-regular fa-arrow-left-long" />
-            CONTACT US
+            {t("contact_us")}
             <i className="fa-regular fa-arrow-right-long" />
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text="Our Contact Information" />
+            {t("our_contact_information")}
           </h2>
         </div>
         <div className="row">
@@ -24,17 +37,17 @@ export default function ContactInfo() {
               <div className="icon">
                 <Image
                   src="/assets/img/icon/18.svg"
-                  width={50}
-                  height={50}
+                  width={60}
+                  height={60}
                   alt="img"
                 />
               </div>
               <div className="content">
-                <h3>Our Address</h3>
+                <h3>{t("our_address")}</h3>
                 <p>
-                  2715 Ash Dr. San Jose,
+                  {t("coming_soon")}
                   <br />
-                  South Dakota 83475
+                  {t("lima_peru")}
                 </p>
               </div>
             </div>
@@ -47,17 +60,17 @@ export default function ContactInfo() {
               <div className="icon">
                 <Image
                   src="/assets/img/icon/19.svg"
-                  width={46}
-                  height={28}
+                  width={60}
+                  height={60}
                   alt="img"
                 />
               </div>
               <div className="content">
-                <h3>Email Address</h3>
+                <h3>{t("email_address")}</h3>
                 <p>
-                  Mobile :<a href="tel:984756123695">9847 5612 3695</a> <br />
-                  Email :
-                  <a href="mailto:example@gmail.com">example@gmail.com</a>
+                  {t("mobile")} :<a href="tel:+51995832403"> +51 995 832 403</a> <br />
+                  {t("email")} :
+                  <a href="mailto:future@h2bread.me"> future@h2bread.me</a>
                 </p>
               </div>
             </div>
@@ -70,16 +83,16 @@ export default function ContactInfo() {
               <div className="icon">
                 <Image
                   src="/assets/img/icon/20.svg"
-                  width={50}
-                  height={50}
+                  width={60}
+                  height={60}
                   alt="img"
                 />
               </div>
               <div className="content">
-                <h3>Hours of Operation</h3>
+                <h3>{t("hours_of_operation")}</h3>
                 <p>
-                  Monday-Saturday : 8:00 - <br />
-                  9:00 Sunday : Closed
+                  {t("monday_saturday")} : 8:00 - <br />
+                  {t("sunday")} : {t("closed")}
                 </p>
               </div>
             </div>

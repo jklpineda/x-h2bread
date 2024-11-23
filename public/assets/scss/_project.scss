@@ -219,13 +219,13 @@
           color: $white;
 
           &:hover {
-            color: $theme-color;
+            color: $white;
           }
         }
       }
 
       span {
-        color: $theme-color;
+        color: var(--border-2);
 
         i {
           margin-right: 5px;

@@ -3,7 +3,6 @@ import Header from "@/components/header/Header";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
 export const metadata = {
   title: "404 || H2Bread",
   description: "H2Bread - Startup",
@@ -79,11 +78,7 @@ export default function page() {
                   />
                 </div>
                 <h2 className="splt-txt wow">
-                  <b>
-                    {" "}
-                    <AnimatedText text="Oops!" />
-                  </b>{" "}
-                  <AnimatedText text="Page Not Found" />
+                  <b>Oops!</b> Page Not Found
                 </h2>
                 <p className="wow fadeInUp" data-wow-delay=".7s">
                   The page you are looking for does not exist

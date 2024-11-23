@@ -3,8 +3,21 @@
 import { closeMobilemenu } from "@/utlis/toggleMobilemenu";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from "react";
 
 export default function Offcanvas({ children }) {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <>
       <div className="fix-area">
@@ -33,9 +46,7 @@ export default function Offcanvas({ children }) {
                 </div>
               </div>
               <p className="text d-none d-xl-block">
-                Nullam dignissim, ante scelerisque the is euismod fermentum odio
-                sem semper the is erat, a feugiat leo urna eget eros. Duis
-                Aenean a imperdiet risus.
+                {t("transform_bakeries")}
               </p>
               <div className="mobile-menu fix mb-3 mean-container">
                 <div className="mean-bar">
@@ -57,7 +68,7 @@ export default function Offcanvas({ children }) {
               </div>
 
               <div className="offcanvas__contact">
-                <h4>Contact Info</h4>
+                <h4>{t("contact_info")}</h4>
                 <ul>
                   <li className="d-flex align-items-center">
                     <div className="offcanvas__contact-icon">
@@ -65,7 +76,7 @@ export default function Offcanvas({ children }) {
                     </div>
                     <div className="offcanvas__contact-text">
                       <a target="_blank" href="#">
-                        Main Street, Melbourne, Australia
+                        {t("lima_peru")}
                       </a>
                     </div>
                   </li>
@@ -74,9 +85,9 @@ export default function Offcanvas({ children }) {
                       <i className="fal fa-envelope" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="mailto:info@example.com">
+                      <a href="mailto:future@h2bread.me">
                         <span className="mailto:info@example.com">
-                          info@example.com
+                          future@h2bread.me
                         </span>
                       </a>
                     </div>
@@ -87,7 +98,7 @@ export default function Offcanvas({ children }) {
                     </div>
                     <div className="offcanvas__contact-text">
                       <a target="_blank" href="#">
-                        Mod-friday, 09am -05pm
+                        {t("mod_friday_hours")}
                       </a>
                     </div>
                   </li>
@@ -96,14 +107,14 @@ export default function Offcanvas({ children }) {
                       <i className="far fa-phone" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="tel:+11002345909">+11002345909</a>
+                      <a href="tel:+51 995832403">+51 995 832 403</a>
                     </div>
                   </li>
                 </ul>
                 <div className="header-button mt-4">
                   <a href="/contact" className="theme-btn text-center">
                     <span>
-                      Get A Quote
+                      {t("get_a_quote")}
                       <i className="fa-solid fa-arrow-right-long" />
                     </span>
                   </a>

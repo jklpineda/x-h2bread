@@ -1,12 +1,24 @@
+"use client";
 import { counterItems } from "@/data/facts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+
 export default function Achievements() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section
       className="achivements-section fix section-bg-2 section-padding bg-cover"
-      style={{ backgroundImage: 'url("/assets/img/achivements-bg-shape.png")' }}
     >
       <div className="container">
         <div className="achivements-wrapper">
@@ -16,19 +28,16 @@ export default function Achievements() {
                 <div className="section-title">
                   <h6 className="wow fadeInUp">
                     <i className="fa-regular fa-arrow-left-long" />
-                    ACHIVEMENTS
+                    {t("achievements")}
                     <i className="fa-regular fa-arrow-right-long" />
                   </h6>
                   <h2 className="splt-txt wow">
-                    <AnimatedText text="Let's Get Started We Are" /> <br />
-                    <AnimatedText text="Now Constructing A Dream." />
+                    {t("lets_start_together")} <br />
+                    {t("we_bake_a_sustainable_future")}
                   </h2>
                 </div>
                 <p className="mt-3 mt-md-0 wow fadeInUp">
-                  It is a long established fact that a reader will be distracted
-                  the readable content of a page when looking at layout the
-                  point of using lorem the is Ipsum less H2Bread normal
-                  distribution of letters.
+                  {t("achievements_description")}
                 </p>
                 <div className="row">
                   {counterItems.map((item) => (
@@ -50,8 +59,8 @@ export default function Achievements() {
                             <Image
                               src={item.iconSrc}
                               style={{ objectFit: "contain" }}
-                              width={36}
-                              height={36}
+                              width={60}
+                              height={60}
                               alt="icon"
                             />
                           </div>

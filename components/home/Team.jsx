@@ -1,9 +1,23 @@
+"use client";
+
 import { teamMembers2 } from "@/data/team";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+
 export default function Team() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section
       className="team-section section-padding pt-0 scrollSpySection"
@@ -29,11 +43,11 @@ export default function Team() {
         <div className="section-title text-center">
           <h6 className="wow fadeInUp">
             <i className="fa-regular fa-arrow-left-long" />
-            our team members
+            {t("our_team_members")}
             <i className="fa-regular fa-arrow-right-long" />
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text=" Our Professional Team" />
+            {t("team_innovators")}
           </h2>
         </div>
         <div className="row">

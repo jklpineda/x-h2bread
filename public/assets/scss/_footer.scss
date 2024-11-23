@@ -203,7 +203,7 @@
                     margin-left: 5px;
 
                     a {
-                        color: $theme-color;
+                        color: var(--white) ;
                     }
                 }
             }
@@ -249,7 +249,7 @@
                             left: 0;
                             right: 0;
                             bottom: 0;
-                            background-color: rgba(295, 91, 31, .7);
+                            background: linear-gradient(180deg, #558B2F 0%, #8BC34A 50%, #A8E063 100%);
                             transition: .4s;
                             opacity: 0;
                             width: 100%;

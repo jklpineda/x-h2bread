@@ -414,6 +414,6 @@ img.mfp-img {
 
 /* Maintain aspect ratio for specific image */
 img[src="/assets/img/testimonial/envato.png"] {
-  width: 100px; /* or any desired width */
+  width: auto; /* or any desired width */
   height: auto; /* maintain aspect ratio */
 }

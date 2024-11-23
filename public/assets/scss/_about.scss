@@ -236,7 +236,8 @@
         .video-items {
             position: absolute;
             bottom: -28%;
-            left: 22%;
+            left: 20%;
+            right: 20%;
 
             @include breakpoint (max-xl){
                 top: 50%;

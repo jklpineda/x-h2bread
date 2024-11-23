@@ -105,8 +105,8 @@ export const teamMembers2 = [
   {
     id: 5,
     image: "/assets/img/team/05.jpg",
-    name: "Shikhon Islam",
-    role: "Sr. engineer",
+    name: "Luis Pineda",
+    role: "Ind. Eng.",
     socials: [
       {
         href: "#",
@@ -130,8 +130,8 @@ export const teamMembers2 = [
   {
     id: 6,
     image: "/assets/img/team/06.jpg",
-    name: "Jenny Wilson",
-    role: "Sr. engineer",
+    name: "Ruth Diaz",
+    role: "Bus. Admin.",
     socials: [
       {
         href: "#",
@@ -209,8 +209,8 @@ export const teamMembers3 = [
   {
     id: 9,
     image: "/assets/img/team/05.jpg",
-    name: "Shikhon Islam",
-    role: "Sr. engineer",
+    name: "Luis Pineda",
+    role: "Ing. Industrial",
     delay: "",
     isActive: false,
     socials: [
@@ -235,7 +235,7 @@ export const teamMembers3 = [
   {
     id: 10,
     image: "/assets/img/team/06.jpg",
-    name: "Jenny Wilson",
+    name: "Teo Mendez",
     role: "Sr. engineer",
     delay: ".2s",
     isActive: true,

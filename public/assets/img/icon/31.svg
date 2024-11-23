@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <style>
+        .base {
+        fill: #8BC34A;
+        }
+
+        .accent {
+        fill: white;
+        }
+
+        .highlight {
+        fill: #8BC34A;
+        }
+
+        @keyframes popIn {
+        0% {
+        transform: scale(0);
+        opacity: 0;
+        }
+        60% {
+        transform: scale(1.2);
+        }
+        100% {
+        transform: scale(1);
+        opacity: 1;
+        }
+        }
+
+        @keyframes pulse {
+        0% {
+        opacity: 0.7;
+        transform: scale(1);
+        }
+        50% {
+        opacity: 1;
+        transform: scale(1.05);
+        }
+        100% {
+        opacity: 0.7;
+        transform: scale(1);
+        }
+        }
+
+        @keyframes float {
+        0% {
+        transform: translateX(0);
+        }
+        50% {
+        transform: translateX(2px);
+        }
+        100% {
+        transform: translateX(0);
+        }
+        }
+
+        .circle-base {
+        animation: popIn 0.5s ease-out;
+        }
+
+        .partnership-group {
+        animation: pulse 2s ease-in-out infinite;
+        }
+
+        .circles-right {
+        animation: float 2s ease-in-out infinite;
+        }
+
+        .circles-left {
+        animation: float 2s ease-in-out infinite reverse;
+        }
+    </style>
+
+    <!-- Círculo base -->
+    <circle class="base circle-base" cx="50" cy="50" r="35"/>
+
+    <!-- Grupo de partnerships -->
+    <g class="partnership-group">
+        <!-- Círculo blanco exterior -->
+        <circle class="accent" cx="50" cy="50" r="25"/>
+        <!-- Círculo verde interior -->
+        <circle class="highlight" cx="50" cy="50" r="20"/>
+
+        <!-- Círculos entrelazados -->
+        <g class="circles-left">
+            <circle class="accent" cx="43" cy="50" r="10"/>
+        </g>
+        <g class="circles-right">
+            <circle class="accent" cx="57" cy="50" r="10"/>
+        </g>
+    </g>
+</svg>

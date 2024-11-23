@@ -1,7 +1,6 @@
 import { teamMembers3 } from "@/data/team";
 import React from "react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
 import Link from "next/link";
 export default function Team() {
   return (
@@ -14,11 +13,11 @@ export default function Team() {
             <i className="fa-regular fa-arrow-right-long" />
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text="Our Professional Team" />
+            {t("team_innovators")}
           </h2>
         </div>
         <div className="row">
-          {teamMembers3.map((member) => (
+        {teamMembers3.map((member) => (
             <div
               key={member.id}
               className={`col-xl-3 col-lg-4 col-md-6 col-sm-6 wow fadeInUp${

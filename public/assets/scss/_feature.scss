@@ -221,7 +221,7 @@
 
         .section-title {
             h6 {
-                color: $white;
+                color: $theme-color;
 
                 @include breakpoint (max-xl){
                     color: $theme-color;
@@ -229,7 +229,7 @@
             }
 
             h2 {
-                color: $white;
+                color: $theme-color;
 
                 @include breakpoint (max-xl){
                     color: $header-color;

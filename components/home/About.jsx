@@ -1,33 +1,29 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
 import ModalVideo from "react-modal-video";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function About() {
+  const { t } = useTranslation();
   const [isOpen, setOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <>
       <section
         id="about"
         className="about-section fix section-padding scrollSpySection"
       >
-        <div className="about-shape-4 float-bob-x">
-          <Image
-            src="/assets/img/about/about-shape-4.png"
-            width={367}
-            height={772}
-            alt="img"
-          />
-        </div>
-        <div className="about-shape-5 float-bob-y">
-          <Image
-            src="/assets/img/about/about-shape-5.png"
-            width={367}
-            height={516}
-            alt="img"
-          />
-        </div>
         <div className="container">
           <div className="about-wrapper-2">
             <div className="row g-4">
@@ -63,7 +59,7 @@ export default function About() {
                       onClick={() => setOpen(true)}
                       className="video-text video-popup"
                     >
-                      play now
+                      {t("play_now")}
                     </a>
                   </div>
                   <div className="bar-shape">
@@ -81,19 +77,16 @@ export default function About() {
                   <div className="section-title">
                     <h6 className="wow fadeInUp">
                       <i className="fa-regular fa-arrow-left-long" />
-                      About Our Company
+                      {t("about_our_company")}
                       <i className="fa-regular fa-arrow-right-long" />
                     </h6>
                     <h2 className="splt-txt wow">
-                      <AnimatedText text="Dedicated To Providing" /> <br />
-                      <AnimatedText text="Top-Notch Construction" />
+                      {t("pioneers_in_ovens")} <br />
+                      {t("with_green_hydrogen")}
                     </h2>
                   </div>
                   <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".4s">
-                    It is a long established fact that a reader will be
-                    distracted the readable content of a page when looking at
-                    layout the point of using lorem the is Ipsum H2Bread less
-                    normal distribution best company in world of letters.
+                    {t("about_description")}
                   </p>
                   <div className="row g-4 mt-3">
                     <div className="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
@@ -101,13 +94,13 @@ export default function About() {
                         <div className="icon">
                           <Image
                             src="/assets/img/icon/05.svg"
-                            width={30}
-                            height={30}
+                            width={50}
+                            height={50}
                             alt="img"
                           />
                         </div>
                         <h5 className="splt-txt wow">
-                          <AnimatedText text="Build & Development" />
+                         {t("innovation_technology")}
                         </h5>
                       </div>
                     </div>
@@ -116,13 +109,13 @@ export default function About() {
                         <div className="icon">
                           <Image
                             src="/assets/img/icon/06.svg"
-                            width={30}
-                            height={30}
+                            width={50}
+                            height={50}
                             alt="img"
                           />
                         </div>
                         <h5 className="splt-txt wow">
-                          <AnimatedText text="Full-service offering" />
+                          {t("complete_solution")}
                         </h5>
                       </div>
                     </div>
@@ -130,15 +123,15 @@ export default function About() {
                   <ul className="list-items wow fadeInUp" data-wow-delay=".2s">
                     <li>
                       <i className="fa-solid fa-circle-check" />
-                      Proactively pontificate client-centered relationships
+                      {t("conversion_technology")}
                     </li>
                     <li>
                       <i className="fa-solid fa-circle-check" />
-                      Is there a waiting list for desired work to be started
+                      {t("iot_system")}
                     </li>
                     <li>
                       <i className="fa-solid fa-circle-check" />
-                      Release of Letraset sheets containing Lorem Ipsum
+                      {t("extra_income")}
                     </li>
                   </ul>
                   <div className="about-author">
@@ -147,7 +140,7 @@ export default function About() {
                       className="theme-btn wow fadeInUp"
                       data-wow-delay=".2s"
                     >
-                      Explore more <i className="fa-regular fa-arrow-right" />
+                      {t("discover_more")} <i className="fa-regular fa-arrow-right" />
                     </Link>
                     <div
                       className="author-image wow fadeInUp"
@@ -160,8 +153,8 @@ export default function About() {
                         alt="author-img"
                       />
                       <div className="content">
-                        <p>H2Bread, CEO</p>
-                        <h4>Brooklyn Simmons</h4>
+                        <p>{t("ceo")}</p>
+                        <h4>Luis Pineda</h4>
                       </div>
                     </div>
                   </div>

@@ -3,10 +3,19 @@
 import { projectItems } from "@/data/projects";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import AnimatedText from "@/components/common/AnimatedText";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+
 export default function Projects() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const swiperOptions = {
     spaceBetween: 30,
     speed: 2000,
@@ -38,6 +47,11 @@ export default function Projects() {
       },
     },
   };
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section
       className="project-section section-padding pt-0 fix scrollSpySection"
@@ -48,11 +62,11 @@ export default function Projects() {
           <div className="section-title">
             <h6 className="wow fadeInUp">
               <i className="fa-regular fa-arrow-left-long" />
-              latest project gallery
+              {t("latest_project_gallery")}
               <i className="fa-regular fa-arrow-right-long" />
             </h6>
             <h2 className="splt-txt wow">
-              <AnimatedText text="Explore Our Project" />
+              {t("explore_our_projects")}
             </h2>
           </div>
           <Link
@@ -60,7 +74,7 @@ export default function Projects() {
             className="theme-btn wow fadeInUp"
             data-wow-delay=".4s"
           >
-            View all Projects <i className="fa-regular fa-arrow-right" />
+            {t("view_projects")} <i className="fa-regular fa-arrow-right" />
           </Link>
         </div>
       </div>

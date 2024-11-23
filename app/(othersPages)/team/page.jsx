@@ -1,14 +1,27 @@
+"use client";
+
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Brands from "@/components/common/Brands";
 import Footer1 from "@/components/footers/Footer1";
 import Header from "@/components/header/Header";
 import Team from "@/components/team/Team";
 import Link from "next/link";
 import Image from "next/image";
-export const metadata = {
-  title: "Team || H2Bread",
-  description: "H2Bread - Startup",
-};
-export default function page() {
+
+export default function Page() {
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    if (!i18n.isInitialized) {
+      i18n.init();
+    }
+  }, [i18n]);
+
+  if (!i18n.isInitialized) {
+    return null; // or a loading spinner
+  }
+
   return (
     <>
       <Header />
@@ -29,7 +42,7 @@ export default function page() {
             <div className="page-heading">
               <div className="breadcrumb-sub-title">
                 <h1 className="wow fadeInUp" data-wow-delay=".3s">
-                  Team
+                  {t('team_title')}
                 </h1>
               </div>
               <ul
@@ -37,12 +50,12 @@ export default function page() {
                 data-wow-delay=".5s"
               >
                 <li>
-                  <Link href={`/`}> Home </Link>
+                  <Link href={`/`}> {t('home')} </Link>
                 </li>
                 <li>
                   <i className="fa-sharp fa-solid fa-slash-forward" />
                 </li>
-                <li>Team</li>
+                <li>{t('team')}</li>
               </ul>
             </div>
             <div className="breadcrumb-image">

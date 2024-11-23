@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
-import { skills } from "@/data/skills";
+import { getSkills } from "@/data/skills";
+import { useTranslation } from "react-i18next";
+
 export default function Skills() {
+  const { t } = useTranslation();
+  const skills = getSkills();
+
   return (
     <section className="skills-section fix section-padding pt-0">
       <div className="shape-1 float-bob-x">
@@ -61,18 +65,15 @@ export default function Skills() {
                 <div className="section-title">
                   <h6 className="wow fadeInUp">
                     <i className="fa-regular fa-arrow-left-long" />
-                    our skills
+                    {t("our_skills")}
                     <i className="fa-regular fa-arrow-right-long" />
                   </h6>
                   <h2 className="splt-txt wow">
-                    <AnimatedText text="We Are Giving You A Chance To Build Your Dream" />
+                    {t("build_your_dream")}
                   </h2>
                 </div>
                 <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".4s">
-                  It is a long established fact that a reader will be distracted
-                  the readable content of a page when looking at layout the
-                  point of using lorem the is Ipsum less normal distribution of
-                  letters.
+                  {t("skills_description")}
                 </p>
                 <div className="skill-feature-items">
                   {skills.map((skill, index) => (

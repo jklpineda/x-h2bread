@@ -1,7 +1,7 @@
 export const pricingPlans = [
   {
     title: "Basic Plan",
-    price: "$2250",
+    price: "$0000",
     frequency: "Month",
     features: [
       "Creative Business Consulting",
@@ -14,7 +14,7 @@ export const pricingPlans = [
   },
   {
     title: "Standard Plan",
-    price: "$3250",
+    price: "$0000",
     frequency: "Month",
     features: [
       "Creative Business Consulting",
@@ -27,7 +27,7 @@ export const pricingPlans = [
   },
   {
     title: "Premium Plan",
-    price: "$5250",
+    price: "$0000",
     frequency: "Month",
     features: [
       "Creative Business Consulting",

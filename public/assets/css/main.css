@@ -11,12 +11,12 @@ Version: 1.0.0
   --body: #fff;
   --black: #000;
   --white: #fff;
-  --theme: #004B76;
-  --theme2: #00B5E2;
+  --theme: #035173;
+  --theme2: #0097BF;
   --header: #121315;
   --text: #666666;
   --border: #d4dced;
-  --border-2: #8BC34A;
+  --border-2: #84bd00;
   --bg: #1e2023;
   --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
 }
@@ -104,7 +104,7 @@ Version: 1.0.0
   transition: all 0.4s ease-in-out;
 }
 .link-btn:hover {
-  color: var(--theme);
+  color: var(--white);
 }
 .link-btn:hover i {
   margin-left: 10px;
@@ -1505,7 +1505,7 @@ span {
   }
 }
 .achivements-wrapper-2 .bg-shape {
-  position: absolute;
+
   bottom: 0;
   top: 0;
   left: 0;
@@ -1516,7 +1516,7 @@ span {
   }
 }
 .achivements-wrapper-2 .bg-shape img {
-  width: 100%;
+  width: auto;
   height: 100%;
 }
 .achivements-wrapper-2 .achivements-content {
@@ -3006,7 +3006,7 @@ span {
   transition: all 0.4s ease-in-out;
 }
 .breadcrumb-wrapper .page-heading .breadcrumb-items li a:hover {
-  color: var(--theme);
+  color: var(--white);
 }
 .breadcrumb-wrapper .page-heading .breadcrumb-items li i {
   color: var(--white);
@@ -3235,8 +3235,8 @@ span {
   background-color: transparent;
   color: var(--white);
   border-radius: 50%;
+  border: 1px solid transparent;
   transition: all 0.4s ease-in-out;
-  border: 1px solid var(--white);
 }
 .array-button .array-prev:hover {
   background-color: var(--white);
@@ -3247,7 +3247,7 @@ span {
   height: 56px;
   line-height: 56px;
   text-align: center;
-  background-color: var(--theme2);
+  background-color: transparent;
   color: var(--white);
   border-radius: 50%;
   border: 1px solid transparent;
@@ -3693,15 +3693,11 @@ span {
     display: none;
   }
 }
-.hero-1 .hero-image-items .array-button .array-prevs,
-.hero-1 .hero-image-items .array-button .array-nexts {
-  color: var(--white);
-  font-size: 16px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+
+.hero-1 .hero-image-items .array-button .array-prevs {
+  color: var(--theme);
 }
+
 .hero-1 .hero-image-items .array-button .array-nexts {
   color: var(--theme);
 }
@@ -4229,7 +4225,7 @@ span {
   margin-bottom: 10px;
 }
 .news-right-items .news-card-items .news-content h4 a:hover {
-  color: var(--theme);
+  color: var(--white);
 }
 .news-right-items .news-card-items .news-content .link-btn {
   color: var(--theme);
@@ -4332,6 +4328,10 @@ span {
 }
 .news-box-items .news-content .author-items .link-btn {
   color: var(--theme);
+
+  &:hover {
+    color: var(--white) !important;
+  }
 }
 .news-box-items:hover,
 .news-box-items.active {
@@ -5324,13 +5324,7 @@ input.main-search-input::placeholder {
     left: -32px;
   }
 }
-.pricing-card-items .pricing-shape {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}
+
 .pricing-card-items.active .pricing-header h3 {
   color: var(--theme);
 }
@@ -6111,7 +6105,7 @@ input.main-search-input::placeholder {
   height: 100%;
   content: "";
   opacity: 0.75;
-  background: linear-gradient(180deg, #f55b1f 0%, #f55b1f 100%);
+  background: linear-gradient(180deg, #f55b1f 0%, #f55b1f 100%) !important;
 }
 .service-card-items .service-image img {
   width: 100%;

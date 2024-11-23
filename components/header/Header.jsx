@@ -1,10 +1,62 @@
 "use client";
-import Nav from "./Nav";
+
+import { useState, useEffect } from "react";
+import { FaGlobe, FaSun, FaMoon } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import Image from "next/image";
+import Nav from "./Nav";
 import Offcanvas from "./Offcanvas";
 import { openMobilemenu } from "@/utlis/toggleMobilemenu";
-import Image from "next/image";
+
 export default function Header() {
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState("en");
+  const [theme, setTheme] = useState("light");
+
+  const toggleLanguage = () => {
+    const newLanguage = language === "en" ? "es" : "en";
+    setLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
+
+  useEffect(() => {
+    const handleSystemThemeChange = (e) => {
+      const systemTheme = e.matches ? "dark" : "light";
+      setTheme(systemTheme);
+      document.documentElement.setAttribute("data-theme", systemTheme);
+      localStorage.setItem("theme", systemTheme);
+    };
+
+    const handleLanguageChange = () => {
+      setLanguage("es");
+      i18n.changeLanguage("es");
+    };
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+
+    handleSystemThemeChange(mediaQuery);
+    handleLanguageChange();
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleSystemThemeChange);
+    };
+  }, [i18n]);
+
   return (
     <>
       <header className="header-section">
@@ -28,7 +80,7 @@ export default function Header() {
                   </div>
                   <div className="content">
                     <p>Office location</p>
-                    <h3>Lima, Lima</h3>
+                    <h3>Lima, Peru</h3>
                   </div>
                 </div>
                 <div className="contact-info-items">
@@ -47,16 +99,19 @@ export default function Header() {
                     <i className="fa-solid fa-phone-volume"></i>
                   </div>
                   <div className="content">
-                    <p>call emergency</p>
+                    <p>call contact</p>
                     <h3>
-                      <a href="tel:+88012365499">+51 925 759 945</a>
+                      <a href="tel:+51995832403">+51 995 832 403</a>
                     </h3>
                   </div>
                 </div>
                 <div className="header-button">
-                  <Link href={`/contact`} className="theme-btn">
-                    GAT A QUOTE <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
+                  <button onClick={toggleLanguage} className="theme-btn">
+                    <FaGlobe /> {language === "en" ? "ES" : "EN"}
+                  </button>
+                  <button onClick={toggleTheme} className="theme-btn">
+                    {theme === "light" ? <FaMoon /> : <FaSun />}
+                  </button>
                 </div>
               </div>
               <div id="header-sticky" className="header-1">

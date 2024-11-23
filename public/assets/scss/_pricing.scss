@@ -87,15 +87,6 @@
             }
         }
     }
-
-    .pricing-shape {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        z-index: -1;
-    }
-
     &.active {
         .pricing-header {
     
@@ -122,6 +113,7 @@
 
 .pricing-section {
     position: relative;
+    background-color: rgba(212, 220, 237, .3);
 
     .pricing-arrow-shape {
         position: absolute;

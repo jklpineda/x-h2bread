@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
 export default function TeamDetails({ teamMember }) {
   return (
     <section className="team-details-section fix section-padding">
@@ -66,7 +65,7 @@ export default function TeamDetails({ teamMember }) {
             <div className="row g-5">
               <div className="col-lg-5">
                 <h3 className="mb-3 splt-txt wow">
-                  <AnimatedText text="About Me" />
+                  About Me
                 </h3>
                 <p>
                   There are many variations of passages of x ohyt Lorem Ipsum
@@ -83,7 +82,7 @@ export default function TeamDetails({ teamMember }) {
               </div>
               <div className="col-lg-7">
                 <h3 className="mb-3 splt-txt wow">
-                  <AnimatedText text="Personal skills" />
+                  Personal skills
                 </h3>
                 <p>
                   There are many variations of passages of Lorem Ipsum
@@ -152,7 +151,7 @@ export default function TeamDetails({ teamMember }) {
           </div>
           <div className="team-gallery-items">
             <h3 className="mb-md-3 splt-txt wow">
-              <AnimatedText text="My Work Gallery" />
+              My Work Gallery
             </h3>
             <div className="row">
               <div className="col-xl-4 col-lg-6 col-md-6">

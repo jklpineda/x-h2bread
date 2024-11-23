@@ -3,8 +3,17 @@ import { testimonials2 } from "@/data/testimonials";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from "react";
+
 export default function Testimonials() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const swiperOptions = {
     spaceBetween: 30,
     speed: 2000,
@@ -33,17 +42,22 @@ export default function Testimonials() {
       },
     },
   };
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section className="testimonial-section-2 fix section-padding">
       <div className="container">
         <div className="section-title text-center">
           <h6 className="wow fadeInUp">
             <i className="fa-regular fa-arrow-left-long" />
-            testimonial
+            {t("testimonial")}
             <i className="fa-regular fa-arrow-right-long" />
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text="What Our Client Say" />
+            {t("what_our_clients_say")}
           </h2>
         </div>
         <div className="array-button">

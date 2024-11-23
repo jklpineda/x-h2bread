@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
 export default function ProjectDetails({ projectItem }) {
   return (
     <section className="project-details-section fix section-padding">
@@ -20,10 +19,10 @@ export default function ProjectDetails({ projectItem }) {
                 <div className="project-details-content">
                   <p className="mb-2">Construction, Architecture</p>
                   <h2 className="splt-txt wow">
-                    <AnimatedText text={projectItem.title} />
+                    {projectItem.title}
                   </h2>
                   <p className="mb-3 mt-3">
-                    There are many variations of passages of Lorem Ipsum
+                  There are many variations of passages of Lorem Ipsum
                     available, but the majority have suffered alteration in some
                     form, by injected humour, or randomised words which don't
                     look even slightly believable. If you are going to use a

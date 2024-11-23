@@ -1,39 +1,46 @@
+"use client";
 import { achievements } from "@/data/facts";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "../common/AnimatedText";
+import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from "react";
+
 export default function Achievments() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section className="achivements-section fix">
       <div className="container">
         <div className="achivements-wrapper-2 section-padding">
-          <div className="bg-shape">
-            <Image
-              src="/assets/img/achivements-shape.png"
-              width={674}
-              height={470}
-              alt="img"
-            />
-          </div>
           <div className="row g-4">
             <div className="col-lg-6">
               <div className="achivements-content">
                 <div className="section-title">
                   <h6 className="wow fadeInUp">
-                    <i className="fa-regular fa-arrow-left-long"></i>ACHIVEMENTS
+                    <i className="fa-regular fa-arrow-left-long"></i>
+                    {t("eco_insights")}
                     <i className="fa-regular fa-arrow-right-long"></i>
                   </h6>
                   <h2 className="splt-txt wow">
-                    <AnimatedText text="Industrial Power," /> <br />
-                    <AnimatedText text="Worldwide Influence" />
+                    {t("sustainable_impact")} <br/>
+                    {t("profitable_future")}
                   </h2>
                 </div>
                 <Link
-                  href={`/contact`}
-                  className="theme-btn bg-white mt-3 mt-md-0 wow fadeInUp"
+                    href={`/contact`}
+                    className="theme-btn bg-white mt-3 mt-md-0 wow fadeInUp"
                   data-wow-delay=".4s"
                 >
-                  MAKE AN APPOINTMENT
+                  {t("save_now")}
                   <i className="fa-regular fa-arrow-right"></i>
                 </Link>
               </div>
@@ -58,14 +65,14 @@ export default function Achievments() {
                       <div className="icon">
                         <Image
                           src={elm.icon}
-                          width={36}
-                          height={36}
+                          width={60}
+                          height={60}
                           alt="img"
                         />
                       </div>
                       <div className="content">
                         <h2>
-                          <span className="count">{elm.count}</span>k+
+                          <span className="count">{elm.count}</span>+
                         </h2>
                         <p>{elm.description}</p>
                       </div>
@@ -82,14 +89,14 @@ export default function Achievments() {
                       <div className="icon">
                         <Image
                           src={elm.icon}
-                          width={36}
-                          height={36}
+                          width={60}
+                          height={60}
                           alt="img"
                         />
                       </div>
                       <div className="content">
                         <h2>
-                          <span className="count">{elm.count}</span>k+
+                          <span className="count">{elm.count}</span>+
                         </h2>
                         <p>{elm.description}</p>
                       </div>

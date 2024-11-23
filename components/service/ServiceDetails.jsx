@@ -87,8 +87,8 @@ export default function ServiceDetails({ serviceItem }) {
                       <div className="icon">
                         <Image
                           src="/assets/img/icon/15.svg"
-                          width={28}
-                          height={28}
+                          width={50}
+                          height={50}
                           alt="img"
                         />
                         <h5>Planning</h5>
@@ -104,8 +104,8 @@ export default function ServiceDetails({ serviceItem }) {
                       <div className="icon">
                         <Image
                           src="/assets/img/icon/16.svg"
-                          width={36}
-                          height={28}
+                          width={50}
+                          height={50}
                           alt="img"
                         />
                         <h5>Design</h5>
@@ -121,8 +121,8 @@ export default function ServiceDetails({ serviceItem }) {
                       <div className="icon">
                         <Image
                           src="/assets/img/icon/17.svg"
-                          width={28}
-                          height={28}
+                          width={50}
+                          height={50}
                           alt="img"
                         />
                         <h5>Get Paid</h5>

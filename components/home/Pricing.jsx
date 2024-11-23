@@ -1,20 +1,33 @@
+"use client";
 import { pricingPlans } from "@/data/pricing";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import AnimatedText from "@/components/common/AnimatedText";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+
 export default function Pricing({ shadow = false }) {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <>
       <div className="container">
         <div className="section-title text-center">
           <h6 className="wow fadeInUp">
             <i className="fa-regular fa-arrow-left-long" />
-            pricing Plans
+            {t("pricing_plans")}
             <i className="fa-regular fa-arrow-right-long" />
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text="Our Affordable Price" />
+            {t("sustainable_plans")}
           </h2>
         </div>
         <div className="row">
@@ -41,14 +54,7 @@ export default function Pricing({ shadow = false }) {
                     />
                   </div>
                 )}
-                <div className="pricing-shape">
-                  <Image
-                    src="/assets/img/pricing-shape.png"
-                    width={288}
-                    height={485}
-                    alt="img"
-                  />
-                </div>
+
                 <div className="pricing-header">
                   <h3>{plan.title}</h3>
                   <h2>
@@ -75,7 +81,7 @@ export default function Pricing({ shadow = false }) {
                     href="/pricing"
                     className={`theme-btn ${plan.active ? "" : "style-2"}`}
                   >
-                    <span></span>choose plan
+                    <span></span>{t("choose_plan")}
                     <i className="fa-regular fa-arrow-right"></i>
                   </Link>
                 </div>

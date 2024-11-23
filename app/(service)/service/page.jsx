@@ -67,7 +67,7 @@ export default function page() {
         </div>
       </div>
       <Services />
-      <div className="brand-section fix section-padding pt-0">
+      <div className="brand-section fix section-padding pt-6">
         <Brands />
       </div>
       <Footer1 />

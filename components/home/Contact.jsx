@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
 export default function Contact() {
   return (
     <section
@@ -22,10 +21,10 @@ export default function Contact() {
             <div className="col-lg-6">
               <div className="contact-items">
                 <h3 className="splt-txt wow">
-                  <AnimatedText text="Get in touch!" />
+                  Get in touch!
                 </h3>
                 <form
-                  onSubmit={(e) => e.preventDefault()}
+                    onSubmit={(e) => e.preventDefault()}
                   className="mt-4 mt-md-0"
                 >
                   <div className="row g-4">
@@ -112,11 +111,11 @@ export default function Contact() {
                     <i className="fa-regular fa-arrow-right-long" />
                   </h6>
                   <h2 className="text-white splt-txt wow">
-                    <AnimatedText text="Building With Passion Ensuring Satisfactions" />
+                    Building With Passion Ensuring Satisfactions
                   </h2>
                 </div>
                 <p
-                  className="text-white mt-3 mt-md-0 wow fadeInUp"
+                    className="text-white mt-3 mt-md-0 wow fadeInUp"
                   data-wow-delay=".5s"
                 >
                   It is a long established fact that a reader will be distracted
@@ -129,9 +128,9 @@ export default function Contact() {
                     <i className="fa-solid fa-phone-volume" />
                   </div>
                   <div className="content">
-                    <span>call emergency</span>
+                    <span>call contact</span>
                     <h4>
-                      <a href="tel:+88012365499">+88 0123 654 99</a>
+                      <a href="tel:+51995832403">+51 995 832 403</a>
                     </h4>
                   </div>
                 </div>

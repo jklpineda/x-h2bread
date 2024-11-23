@@ -31,7 +31,6 @@ export default function page() {
       <Team />
       <section
         className="pricing-section fix section-padding bg-cover"
-        style={{ backgroundImage: 'url("/assets/img/pricing-bg.jpg")' }}
       >
         <div className="pricing-arrow-shape float-bob-y">
           <Image

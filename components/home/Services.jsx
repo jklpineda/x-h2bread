@@ -4,8 +4,17 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+
 export default function Services() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const swiperOptions = {
     spaceBetween: 30,
     speed: 2000,
@@ -43,6 +52,11 @@ export default function Services() {
       },
     },
   };
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section
       id="services"
@@ -60,12 +74,12 @@ export default function Services() {
         <div className="section-title text-center">
           <h6 className="wow fadeInUp">
             <i className="fa-regular fa-arrow-left-long" />
-            quality Services
+            {t("quality_services")}
             <i className="fa-regular fa-arrow-right-long" />
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text="Best Of Our High Quality" /> <br />
-            <AnimatedText text="Constriction" />
+            {t("excellence_in")} <br />
+            {t("green_technology")}
           </h2>
         </div>
       </div>
@@ -79,7 +93,7 @@ export default function Services() {
                     src={item.serviceImage}
                     width={370}
                     height={367}
-                    alt="Service"
+                    alt={t(item.title)}
                   />
                 </div>
                 <div className="bar-shape">
@@ -91,20 +105,20 @@ export default function Services() {
                   />
                 </div>
                 <div className="icon">
-                  <Image src={item.icon} width={40} height={40} alt="Icon" />
+                  <Image src={item.icon} width={60} height={60} alt="Icon" />
                 </div>
                 <div className="content">
                   <h3>
                     <Link href={`/service-details/${item.id}`}>
-                      {item.title}
+                      {t(item.title)}
                     </Link>
                   </h3>
-                  <p>{item.description}</p>
+                  <p>{t(item.description)}</p>
                   <Link
                     href={`/service-details/${item.id}`}
                     className="link-btn"
                   >
-                    Explore More <i className="fa-solid fa-arrow-right" />
+                    {t("learn_more")} <i className="fa-solid fa-arrow-right" />
                   </Link>
                 </div>
                 <div className="items-shape">

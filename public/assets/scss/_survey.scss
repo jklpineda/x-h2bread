@@ -1,0 +1,514 @@
+// _survey.scss
+
+@use "sass:math";
+
+// Variables
+$primary-color: #3B82F6;
+$background-dark: #111827;
+$text-light: #F3F4F6;
+$accent-color: #10B981;
+$danger-color: #EF4444;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+// Estilos base del contenedor principal
+.typeform-container {
+  @include flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $background-dark;
+  color: $text-light;
+  overflow: hidden;
+  z-index: 100;
+}
+
+// Fondo con gradiente
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+          radial-gradient(circle at 0% 0%, rgba($primary-color, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 100% 100%, rgba($accent-color, 0.1) 0%, transparent 50%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// Contenedor de preguntas wrapper
+.questions-wrapper {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  z-index: 1;
+
+  @media (max-width: 428px) {
+    padding: 0.25rem;
+  }
+}
+
+// Contenedor individual de preguntas
+.question-container {
+  @include flex-center;
+  width: 100%;
+  max-width: min(95vw, 800px);
+  height: auto;
+  max-height: 90vh;
+  padding: 1.5rem;
+  @include glass-effect;
+  border-radius: 1rem;
+  margin: auto;
+  overflow-y: auto;
+  position: relative;
+
+  // Personalización del scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @media (max-width: 428px) {
+    padding: 1rem;
+    margin: 0.25rem;
+    max-height: 85vh;
+  }
+}
+
+// Contenido de las preguntas
+.question-content {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+
+  h2 {
+    font-size: clamp(1.125rem, 5vw, 2rem);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: $text-light;
+
+    @media (max-width: 428px) {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Pantalla de bienvenida
+.welcome-screen {
+  @include flex-center;
+  width: 100%;
+
+  .welcome-content {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+
+    h1 {
+      font-size: clamp(1.5rem, 6vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, $text-light, rgba($text-light, 0.8));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      font-weight: 500;
+      color: rgba($text-light, 0.9);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: clamp(1rem, 3vw, 1rem);
+      line-height: 1.4;
+      color: rgba($text-light, 0.7);
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+// Lista de beneficios
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  max-width: 600px;
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+
+    &:hover {
+      transform: translateX(10px);
+    }
+
+    .benefit-icon {
+      color: $accent-color;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 428px) {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Grid de opciones
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: min(90%, 600px);
+  margin: 0 auto;
+
+  .option-button {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    padding: 0.875rem 1rem;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    color: $text-light;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateX(10px);
+    }
+
+    &.selected {
+      border-color: $primary-color;
+      background: rgba($primary-color, 0.1);
+
+      .check-mark {
+        opacity: 1;
+        transform: scale(1) translateY(-50%);
+      }
+    }
+
+    .option-text {
+      display: block;
+      padding-right: 2rem;
+    }
+
+    .check-mark {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: scale(0) translateY(-50%);
+      color: $primary-color;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 428px) {
+      padding: 0.75rem;
+    }
+  }
+}
+
+// Formulario de contacto
+.contact-form {
+  width: 100%;
+  max-width: min(90%, 500px);
+  margin: 0 auto;
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      color: $text-light;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  .continue-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+// Área de texto
+.textarea-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .feedback-textarea {
+    width: 100%;
+    min-height: 120px;
+    max-height: 200px;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    color: $text-light;
+    font-size: 0.875rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+// Botones
+.start-button,
+.continue-button,
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background: lighten($primary-color, 5%);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 428px) {
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+// Navegación
+.navigation-controls {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+
+  button {
+    @include flex-center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: $text-light;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.close-button:hover {
+      background: rgba($danger-color, 0.2);
+      color: $danger-color;
+    }
+
+    @media (max-width: 428px) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+// Barra de progreso
+.progress-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, $primary-color, $accent-color);
+    transition: width 0.5s ease-out;
+  }
+}
+
+// Pantalla de éxito
+.success-screen {
+  @include flex-center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $background-dark;
+  z-index: 100;
+
+  .success-content {
+    text-align: center;
+    padding: 1.5rem;
+    @include glass-effect;
+    border-radius: 1rem;
+    max-width: min(90%, 600px);
+    margin: 1rem;
+
+    .success-icon {
+      @include flex-center;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      background: rgba($accent-color, 0.1);
+      border-radius: 50%;
+      color: $accent-color;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: rgba($text-light, 0.8);
+    }
+
+    @media (max-width: 428px) {
+      padding: 1rem;
+    }
+  }
+}
+
+// Media queries específicos para iPhone 8 y similares
+@media screen and (max-width: 375px) and (max-height: 667px) {
+  .question-container {
+    max-height: 80vh;
+    padding: 0.75rem;
+  }
+
+  .question-content {
+    padding: 0.25rem;
+
+    h2 {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+// Ajustes para modo landscape
+@media (max-height: 428px) and (orientation: landscape) {
+  .question-container {
+    max-height: 75vh;
+    padding: 0.75rem;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .benefits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+.powered-by {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    font-size: 10px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}

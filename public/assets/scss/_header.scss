@@ -90,7 +90,7 @@
 
 	.social-icon {
 		gap: 20px;
-		
+
 		a {
 			color: $header-color;
 
@@ -202,12 +202,12 @@
 			@include breakpoint (max-xl){
 				display: none;
 			}
-        
-        
+
+
             @include breakpoint (max-sm){
                 gap: 30px;
             }
-        
+
             .contact-info-items {
                 @include flex;
                 gap: 20px;
@@ -221,7 +221,7 @@
 					border-right: none;
 					padding-right: 0;
 				}
-        
+
                 .icon {
                     width: 40px;
                     height: 40px;
@@ -258,7 +258,7 @@
 						}
                     }
                 }
-        
+
                 .content {
                     p {
                         color: $text-color;
@@ -268,7 +268,7 @@
                         font-weight: 500;
                         opacity: 0.7;
                     }
-        
+
                     h3 {
                         font-size: 20px;
                         color: $header-color;
@@ -277,7 +277,7 @@
 						@include breakpoint (max-xxxl){
 							font-size: 18px;
 						}
-        
+
                         a {
                             color: $header-color;
                         }
@@ -308,7 +308,7 @@
     }
 
 	.header-main {
-		
+
 		.main-menu {
 			ul {
 				li {
@@ -316,7 +316,7 @@
 					@include breakpoint (max-xxl){
 						margin-inline-end: 40px;
 					}
-					
+
 					.has-homemenu {
 						@include breakpoint (max-xl4){
 							left: -50px;
@@ -364,7 +364,7 @@
 			.main-menu {
 				ul {
 					li {
-	
+
 						@include breakpoint (max-xxl){
 							margin-inline-end: 25px;
 
@@ -372,7 +372,7 @@
 								font-size: 16px;
 							}
 						}
-						
+
 						.has-homemenu {
 							@include breakpoint (max-xl4){
 								left: -50px;
@@ -413,7 +413,7 @@
 			@include flex;
 			gap: 40px;
 			margin-right: 40px;
-			
+
 			@include breakpoint (max-xxl){
 				margin-right: 0;
 			}
@@ -453,7 +453,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 10px 0;
-	
+
 	.main-menu {
 		ul {
 			margin-bottom: 0;
@@ -462,11 +462,11 @@
 				list-style: none;
 				display: inline-block;
 				margin-inline-end: 50px;
-	
+
 			&:last-child {
 				margin-inline-end: 0;
 			}
-	
+
 			a {
 				display: inline-block;
 				font-size: 17px;
@@ -481,11 +481,11 @@
 				i {
 					margin-left: 7px;
 				}
-	
+
 				&:hover {
 					color: $theme-color !important;
 				}
-	
+
 			}
 			.submenu {
 				position: absolute;
@@ -509,7 +509,7 @@
 					width: 100%;
 					margin: 0;
 					padding: 0;
-	
+
 					a {
 						position: relative;
 						z-index: 11;
@@ -595,7 +595,7 @@
 						position: relative;
 						.homemenu-thumb {
 							position: relative;
-	
+
 							.demo-button {
 								position: absolute;
 								top: 50%;
@@ -610,7 +610,7 @@
 								visibility: hidden;
 								@include transition;
 								margin-top: 20px;
-	
+
 								.theme-btn {
 									padding: 14px 20px;
 									color: $white !important;
@@ -619,17 +619,17 @@
 									text-align: center;
 									border-radius: 0px !important;
 									background-color: $theme-color;
-	
+
 									&:hover {
 										color: $white !important;
-										
+
 										&::before {
 											background-color: $header-color;
 										}
 									}
 								}
 							}
-	
+
 							&::before {
 								background: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 19, 19, 0)), to(#5e5ef6));
 								background: linear-gradient(to bottom, rgba(99, 92, 92, 0) 0%, #252527 100%);
@@ -648,12 +648,12 @@
 								content: "";
 							}
 							&:hover{
-	
+
 								&::before {
 									visibility: visible;
 									opacity: 1;
 								}
-	
+
 								.demo-button {
 									opacity: 1;
 									visibility: visible;
@@ -670,7 +670,7 @@
 								width: 100%;
 							}
 						}
-	
+
 						.homemenu-title {
 							text-align: center;
 							margin: 15px auto;
@@ -680,7 +680,7 @@
 					}
 				}
 			}
-			
+
 			&:hover {
 				>a {
 					color:  $theme-color;
@@ -846,7 +846,7 @@
 			}
 
 			.header-button {
-				
+
 				.theme-btn {
 					width: 100%;
 					padding: 16px 40px;
@@ -948,7 +948,7 @@
 	}
 
 	.page-heading{
-		
+
 		h1 {
 			color: $white;
 			font-size: 74px;
@@ -973,22 +973,22 @@
 			@include breakpoint (max-sm){
 				margin-top: 15px;
 			}
-			
+
 			li{
-				color: $theme-color;
+				color: var(--border-2);
 				text-transform: capitalize;
 				font-weight: 500;
 				font-size: 18px;
-	
+
 				a {
 					color: $white;				;
 					@include transition;
-	
+
 					&:hover{
 						color: $theme-color;
 					}
 				}
-	
+
 				i {
 					color: $white;
                     opacity: .8;
@@ -1067,4 +1067,37 @@
 		font-size: 18px;
 		margin-bottom: 30px;
 	}
+}
+
+:root {
+	--background-color: #ffffff;
+	--text-color: #000000;
+}
+
+[data-theme="dark"] {
+	--background-color: #000000;
+	--text-color: #ffffff;
+	h2 {
+		color: var(--theme2);
+	}
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--theme);
+}
+
+.header-section, .header-top-wrapper, .header-top-wrapper-2, .header-main, .offcanvas__info, .sticky {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.header-button .theme-btn {
+	//color: var(--text-color);
+	//background-color: var(--primary-color);
+}
+
+.header-button .theme-btn:hover {
+	background-color: var(--primary-color);
+	//opacity: 0.8;
 }

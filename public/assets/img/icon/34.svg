@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <style>
+        .base {
+        fill: #8BC34A;
+        }
+
+        .accent {
+        fill: white;
+        }
+
+        .highlight {
+        fill: #8BC34A;
+        }
+
+        @keyframes popIn {
+        0% {
+        transform: scale(0);
+        opacity: 0;
+        }
+        60% {
+        transform: scale(1.2);
+        }
+        100% {
+        transform: scale(1);
+        opacity: 1;
+        }
+        }
+
+        @keyframes pulse {
+        0% {
+        opacity: 0.7;
+        transform: scale(1);
+        }
+        50% {
+        opacity: 1;
+        transform: scale(1.05);
+        }
+        100% {
+        opacity: 0.7;
+        transform: scale(1);
+        }
+        }
+
+        @keyframes shine {
+        0% {
+        opacity: 0.7;
+        }
+        50% {
+        opacity: 1;
+        }
+        100% {
+        opacity: 0.7;
+        }
+        }
+
+        .circle-base {
+        animation: popIn 0.5s ease-out;
+        }
+
+        .team-group {
+        animation: pulse 2s ease-in-out infinite;
+        }
+
+        .star {
+        animation: shine 2s ease-in-out infinite;
+        }
+    </style>
+
+    <!-- Círculo base -->
+    <circle class="base circle-base" cx="50" cy="50" r="35"/>
+
+    <!-- Grupo del equipo -->
+    <g class="team-group">
+        <!-- Círculo blanco exterior -->
+        <circle class="accent" cx="50" cy="50" r="25"/>
+        <!-- Círculo verde interior -->
+        <circle class="highlight" cx="50" cy="50" r="20"/>
+
+        <!-- Figuras de personas -->
+        <g class="accent">
+            <!-- Persona central más grande -->
+            <circle cx="50" cy="45" r="5"/>
+            <path d="M44 55 L56 55 L53 65 L47 65 Z"/>
+
+            <!-- Persona izquierda -->
+            <circle cx="38" cy="48" r="4"/>
+            <path d="M34 56 L42 56 L40 64 L36 64 Z"/>
+
+            <!-- Persona derecha -->
+            <circle cx="62" cy="48" r="4"/>
+            <path d="M58 56 L66 56 L64 64 L60 64 Z"/>
+        </g>
+    </g>
+</svg>

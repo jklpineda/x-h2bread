@@ -70,7 +70,7 @@ export default function page() {
         <Pricing shadow />
       </section>
 
-      <div className="brand-section fix section-padding pt-0">
+      <div className="brand-section fix section-padding pt-6">
         <Brands />
       </div>
       <Footer1 />

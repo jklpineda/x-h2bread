@@ -1,21 +1,35 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Pagination from "../common/Pagination";
 import { services } from "@/data/services";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+
 export default function Services() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section className="service-section fix section-padding">
       <div className="container">
         <div className="section-title text-center">
           <h6 className="wow fadeInUp">
-            <i className="fa-regular fa-arrow-left-long"></i>WHAT WE OFFER
+            <i className="fa-regular fa-arrow-left-long"></i>
+            {t("what_we_offer")}
             <i className="fa-regular fa-arrow-right-long"></i>
           </h6>
           <h2 className="splt-txt wow">
-            <AnimatedText text="Create The Building" /> <br />
-            <AnimatedText text="You Want Here" />
+            {t("industrial_hydrogen_ovens")} <br />
+            {t("for_bakeries")}
           </h2>
         </div>
         <div className="row">
@@ -31,7 +45,7 @@ export default function Services() {
                     src={service.image}
                     width={346}
                     height={236}
-                    alt="img"
+                    alt={t(service.title)}
                   />
                   <div className="icon">
                     <Image
@@ -46,15 +60,15 @@ export default function Services() {
                   <h2 className="number">{service.number}</h2>
                   <h3>
                     <Link href={`/service-details/${service.id}`}>
-                      {service.title}
+                      {t(service.title)}
                     </Link>
                   </h3>
-                  <p>{service.description}</p>
+                  <p>{t(service.description)}</p>
                   <Link
                     href={`/service-details/${service.id}`}
                     className="link-btn"
                   >
-                    Explore More <i className="fa-solid fa-arrow-right" />
+                    {t("explore_more")} <i className="fa-solid fa-arrow-right" />
                   </Link>
                 </div>
               </div>

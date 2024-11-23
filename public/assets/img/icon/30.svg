@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <style>
+        .base {
+        fill: #8BC34A;
+        }
+
+        .accent {
+        fill: white;
+        }
+
+        .highlight {
+        fill: #8BC34A;
+        }
+
+        @keyframes popIn {
+        0% {
+        transform: scale(0);
+        opacity: 0;
+        }
+        60% {
+        transform: scale(1.2);
+        }
+        100% {
+        transform: scale(1);
+        opacity: 1;
+        }
+        }
+
+        @keyframes pulse {
+        0% {
+        opacity: 0.7;
+        transform: scale(1);
+        }
+        50% {
+        opacity: 1;
+        transform: scale(1.05);
+        }
+        100% {
+        opacity: 0.7;
+        transform: scale(1);
+        }
+        }
+
+        @keyframes rotate {
+        from {
+        transform: rotate(0deg);
+        }
+        to {
+        transform: rotate(360deg);
+        }
+        }
+
+        .circle-base {
+        animation: popIn 0.5s ease-out;
+        }
+
+        .clean-energy-group {
+        animation: pulse 2s ease-in-out infinite;
+        }
+
+        .windmill {
+        transform-origin: center;
+        animation: rotate 4s linear infinite;
+        }
+    </style>
+
+    <!-- Círculo base -->
+    <circle class="base circle-base" cx="50" cy="50" r="35"/>
+
+    <!-- Grupo de energía limpia -->
+    <g class="clean-energy-group">
+        <!-- Círculo blanco exterior -->
+        <circle class="accent" cx="50" cy="50" r="25"/>
+        <!-- Círculo verde interior -->
+        <circle class="highlight" cx="50" cy="50" r="20"/>
+        <!-- Aspas del molino -->
+        <g class="windmill">
+            <path class="accent" d="M50 50 L40 35 L45 33 L50 50"/>
+            <path class="accent" d="M50 50 L65 40 L67 45 L50 50"/>
+            <path class="accent" d="M50 50 L45 67 L40 65 L50 50"/>
+        </g>
+    </g>
+</svg>

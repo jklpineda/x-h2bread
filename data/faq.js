@@ -1,42 +1,43 @@
-export const faqs = [
-  {
-    id: 1,
-    question: "How long should a business plan be?",
-    answer:
-      "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".1s",
-    expanded: false,
-  },
-  {
-    id: 2,
-    question: "What are the different stages of a construction project?",
-    answer:
-      "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".3s",
-    expanded: true,
-  },
-  {
-    id: 3,
-    question: "What are the different stages of a construction project?",
-    answer:
-      "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".5s",
-    expanded: false,
-  },
-  {
-    id: 4,
-    question: "What are the different stages of a construction project?",
-    answer:
-      "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".6s",
-    expanded: false,
-  },
-  {
-    id: 5,
-    question: "What are the different stages of a construction project?",
-    answer:
-      "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".7s",
-    expanded: false,
-  },
-];
+import { useTranslation } from "react-i18next";
+
+export const getFaqs = () => {
+  const { t } = useTranslation();
+
+  return [
+    {
+      id: 1,
+      question: t("faq_question_1"),
+      answer: t("faq_answer_1"),
+      delay: ".1s",
+      expanded: false,
+    },
+    {
+      id: 2,
+      question: t("faq_question_2"),
+      answer: t("faq_answer_2"),
+      delay: ".3s",
+      expanded: true,
+    },
+    {
+      id: 3,
+      question: t("faq_question_3"),
+      answer: t("faq_answer_3"),
+      delay: ".5s",
+      expanded: false,
+    },
+    {
+      id: 4,
+      question: t("faq_question_4"),
+      answer: t("faq_answer_4"),
+      delay: ".6s",
+      expanded: false,
+    },
+    {
+      id: 5,
+      question: t("faq_question_5"),
+      answer: t("faq_answer_5"),
+      delay: ".7s",
+      expanded: false,
+    },
+  ];
+};

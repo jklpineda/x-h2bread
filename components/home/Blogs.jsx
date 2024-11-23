@@ -1,40 +1,37 @@
+"use client";
 import { newsItems2 } from "@/data/blogs";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
+import { useTranslation } from "react-i18next";
+
 export default function Blogs() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <section
       className="news-section fix section-padding pt-0 scrollSpySection"
       id="blog"
     >
-      <div className="shape-3 float-bob-y">
-        <Image
-          src="/assets/img/news/shape-3.png"
-          width={261}
-          height={272}
-          alt="img"
-        />
-      </div>
-      <div className="shape-4 float-bob-y">
-        <Image
-          src="/assets/img/news/shape-4.png"
-          width={413}
-          height={232}
-          alt="img"
-        />
-      </div>
       <div className="container">
         <div className="section-title-area">
           <div className="section-title">
             <h6 className="wow fadeInUp">
               <i className="fa-regular fa-arrow-left-long" />
-              Blog &amp; News
+              {t("blog_news")}
               <i className="fa-regular fa-arrow-right-long" />
             </h6>
             <h2 className="splt-txt wow">
-              <AnimatedText text="Latest News & Blog" />
+              {t("latest_news_blog")}
             </h2>
           </div>
           <Link
@@ -42,7 +39,7 @@ export default function Blogs() {
             className="theme-btn wow fadeInUp"
             data-wow-delay=".5s"
           >
-            View all post <i className="fa-regular fa-arrow-right" />
+            {t("view_all_posts")} <i className="fa-regular fa-arrow-right" />
           </Link>
         </div>
         <div className="row">
@@ -54,12 +51,6 @@ export default function Blogs() {
             >
               <div className={`news-box-items ${news.style}`}>
                 <div className="news-image">
-                  <Image
-                    src={news.imageSrc}
-                    width={370}
-                    height={198}
-                    alt="news"
-                  />
                   <Image
                     src={news.imageSrc}
                     width={370}
@@ -84,7 +75,7 @@ export default function Blogs() {
                         alt="author"
                       />
                       <div className="content">
-                        <h6>Admin</h6>
+                        <h6>{t("admin")}</h6>
                         <p>{news.authorName}</p>
                       </div>
                     </div>
@@ -92,7 +83,7 @@ export default function Blogs() {
                       href={`/news-details/${news.id}`}
                       className="link-btn"
                     >
-                      Read More <i className="fa-solid fa-arrow-right" />
+                      {t("read_more")} <i className="fa-solid fa-arrow-right" />
                     </Link>
                   </div>
                 </div>
