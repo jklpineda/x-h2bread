@@ -22,8 +22,6 @@ Version: 1.0.0
 
 //>> Template Section Style Start <<//
 
-//>> Hero <<//
-@import "_hero";
 //>> About <<//
 @import "_about";
 //>> Animation <<//
@@ -44,10 +42,14 @@ Version: 1.0.0
 @import "_header";
 //>> Helping <<//
 @import "_helping";
+//>> Hero <<//
+@import "_hero";
 //>> MeanMenu <<//
 @import "_meanmenu";
 //>> News <<//
 @import "_news";
+//>> Preloader <<//
+@import "_preloader";
 //>> Pricing <<//
 @import "_pricing";
 //>> Project <<//

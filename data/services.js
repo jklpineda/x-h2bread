@@ -200,23 +200,23 @@ export const services = [
 export const services2 = [
   {
     id: 23,
-    title: "innovation",
+    title: "Innovation",
   },
   {
     id: 24,
-    title: "transformation",
+    title: "Transformation",
   },
   {
     id: 25,
-    title: "material_supply",
+    title: "Material Supply",
   },
   {
     id: 26,
-    title: "project_management",
+    title: "Project Management",
   },
   {
     id: 27,
-    title: "heating_water",
+    title: "Heating and Water",
   },
 ];
 
