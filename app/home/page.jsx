@@ -1,23 +1,22 @@
-import Brands from "@/components/common/Brands";
-import Footer1 from "@/components/footers/Footer1";
+'use client';
+
+import React from "react";
 import Header from "@/components/header/Header";
-import About from "@/components/home/About";
-import Achievements from "@/components/home/Achievements";
-import Blogs from "@/components/home/Blogs";
-import Cta from "@/components/home/Cta";
 import Hero from "@/components/home/Hero";
-import Pricing from "@/components/home/Pricing";
+import About from "@/components/home/About";
+import Services from "@/components/home/Services";
+import Brands from "@/components/common/Brands";
 import Projects from "@/components/home/Projects";
 import Team from "@/components/home/Team";
+import Pricing from "@/components/home/Pricing";
+import Cta from "@/components/home/Cta";
+import Achievements from "@/components/home/Achievements";
 import Testimonials from "@/components/home/Testimonials";
-import React from "react";
+import Blogs from "@/components/home/Blogs";
+import Footer1 from "@/components/footers/Footer1";
 import Image from "next/image";
-import Services from "@/components/home/Services";
-export const metadata = {
-  title: "Home || H2Bread",
-  description: "H2Bread - Startup",
-};
-export default function page() {
+
+export default function HomePage() {
   return (
     <>
       <Header />
@@ -29,9 +28,7 @@ export default function page() {
       </div>
       <Projects />
       <Team />
-      <section
-        className="pricing-section fix section-padding bg-cover"
-      >
+      <section className="pricing-section fix section-padding bg-cover">
         <div className="pricing-arrow-shape float-bob-y">
           <Image
             src="/assets/img/pricing-arrow-shape.png"
